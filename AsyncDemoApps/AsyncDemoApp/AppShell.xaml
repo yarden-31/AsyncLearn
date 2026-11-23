@@ -6,13 +6,27 @@
     xmlns:local="clr-namespace:AsyncDemoApp"
     xmlns:views="clr-namespace:Views"
     FlowDirection="LeftToRight"
-    Title="AsyncDemoApp">
+    Title="AsyncApps">
+
+    <FlyoutItem Title="Tasks">
+        <ShellContent
+        Title="Tasks"
+        ContentTemplate="{DataTemplate views:TasksPage}"
+        Route="TasksPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Welcome">
+        <ShellContent
+            Title="welcome"
+            ContentTemplate="{DataTemplate views:WelcomePage}"
+            Route="WelcomePage" />
+    </FlyoutItem>
 
     <FlyoutItem Title="Async Demo">
-            <ShellContent
+        <ShellContent
             Title="Async Demo"
             ContentTemplate="{DataTemplate views:AsyncDemoPage}"
             Route="AsyncDemoPage" />
-        </FlyoutItem>
+    </FlyoutItem>
 
 </Shell>

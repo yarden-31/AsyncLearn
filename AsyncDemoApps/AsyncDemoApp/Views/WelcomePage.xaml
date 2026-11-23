@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Views.WelcomePage"
+             xmlns:vm="clr-namespace:ViewModels"
+             x:DataType="vm:WelcomeViewModel"
+             FlowDirection="RightToLeft"
+             Title="{Binding Title}">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+        <Label Text="ברוכים הבאים לאפליקציות להדגמת אסינכרוניות"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center" />
+
+        <Button Text="אסינכרויות/סינכרוניות"
+                Command="{Binding NavigateToAsyncDemoCommand}"
+                HeightRequest="50" />
+
+    </VerticalStackLayout>
+</ContentPage>

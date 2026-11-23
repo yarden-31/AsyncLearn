@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿
+using Microsoft.Extensions.Logging;
+using ViewModels;
+using Views;
 
 namespace AsyncDemoApp
 {
@@ -7,6 +10,7 @@ namespace AsyncDemoApp
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -15,8 +19,11 @@ namespace AsyncDemoApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddTransient<TasksViewModel>();
+            builder.Services.AddTransient<TasksPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

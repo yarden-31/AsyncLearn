@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ViewModels"
+             xmlns:views="clr-namespace:Views"
+             x:Class="Views.TasksPage"
+             x:DataType="vm:TasksViewModel"
+             Title="Tasks">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+        <Button Text="Start Task"
+                Command="{Binding StartTaskCommand}" />
+
+        <Label Text="{Binding CompletedTasksCount,
+                       StringFormat='Completed Tasks: {0}'}"
+               FontSize="18"
+               HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding Tasks}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:TaskItemViewModel">
+
+                    <VerticalStackLayout Padding="10"
+                                         Spacing="8">
+
+                        <Label Text="{Binding TaskId,
+                                       StringFormat='Task #{0}'}" />
+
+                        <Label Text="{Binding StatusText}" />
+
+                        <ProgressBar Progress="{Binding Progress}"
+                                     ProgressColor="Green" />
+
+                        <Button Text="Cancel"
+                                Command="{Binding CancelCommand}"
+                                IsEnabled="{Binding IsCancelEnabled}" />
+
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Go Home"
+                Command="{Binding GoHomeCommand}" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
